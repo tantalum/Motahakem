@@ -1,0 +1,27 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Application Routes
+GET	/				controllers.Application.index()
+GET	/login				controllers.Application.login()
+POST	/login				controllers.Application.authenticate()
+GET	/logout				controllers.Application.logout()
+
+# Server Management
+GET		/servers			controllers.Servers.servers()
+POST	/servers/new			controllers.Servers.newServer()
+GET		/servers/:id/status		controllers.Servers.status(id: Long)
+GET		/servers/:id/edit		controllers.Servers.edit(id: Long)
+POST	/servers/:id/edit		controllers.Servers.update(id: Long)
+POST	/servers/:id/reboot		controllers.Servers.reboot(id: Long)
+POST	/servers/:id/remove 		controllers.Servers.remove(id: Long)
+
+# Plugins
+GET	/servers/:id/:plugin		controllers.Plugins.pluginPane(id: Long, plugin: String)
+POST	/servers/:id/:plugin/stop	controllers.Plugins.stop(id: Long, plugin: String)
+POST	/servers/:id/:plugin/start	controllers.Plugins.start(id: Long, plugin: String)
+POST	/servers/:id/:plugin/restart	controllers.Plugins.restart(id: Long, plugin: String)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

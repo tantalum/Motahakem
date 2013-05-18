@@ -1,0 +1,23 @@
+@(server: Server, pings: List[Ping])
+
+@layout {
+	<h2>Satus of server @server.name</h2>
+	<table id="pings">
+		@for(ping <- pings) {
+			@if(ping.reachable) {
+				<tr style="background-color:green">
+			} else {
+				<tr style="background-color:red">
+			}
+				<td>@ping.time</td>
+				<td>
+					@if(ping.reachable) {
+						online
+					} else {
+						offline
+					}
+				</td>
+			</tr>
+		}
+	</table>
+}

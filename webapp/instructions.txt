@@ -1,0 +1,18 @@
+[In Console]
+cd Motahakem
+play run
+
+[In Mysql]
+drop table ping;
+drop table play_evoltions;
+drop table user;
+drop table server;
+
+[Open website and click "Apply Evolutions"]
+
+[In Mysql]
+insert into user values ('admin', MD5('adminBOUVIUSDbKJlafkaljhdahfjhLJHFJDhsvab kjabvkjhfda'));
+
+[Login to website]
+[Register new server]
+

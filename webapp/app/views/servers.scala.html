@@ -1,0 +1,40 @@
+@(servers: List[Server], serverFormData: Form[Server])
+
+@import helper._
+
+@layout{
+	<script type="text/javascript">
+	$(document).ready(function () {
+		setTimeout("localtion.reload(true)", 60000);
+	});
+	</script>
+	@if(servers.isEmpty){
+		<em>No Servers regestered</em>
+	} else {
+		<ul id="server-list">
+			@for(server <- servers) {
+				<li>@serverLine(server, server.getUptime)</li>
+			}
+		</ul>
+	}
+
+	<script type="text/javascript">
+	$(document).ready(function (){
+		$("#new-server-header").click(function (){
+			if ($("#new-server-form").is(":hidden")) {
+				$("#new-server-form").slideDown('slow');
+			} else {
+				$("#new-server-form").slideUp('slow');
+			}
+		});
+	});
+	</script>
+
+	<div id="new-server">
+		<div id="new-server-header" class="button">Register new server:</div>
+		<div id="new-server-form">
+			@serverForm(serverFormData, "/servers/new")
+		</div>
+	</div>
+
+}

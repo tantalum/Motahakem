@@ -1,0 +1,29 @@
+@(loginForm: Form[Application.Login])
+
+@import helper._
+
+@layout {
+	<div id="login-wrapper">
+		<div id="login-form-wrapper">
+			@form(routes.Application.authenticate()) {
+				<h1>Sign in</h1>
+				@if(loginForm.hasGlobalErrors) {
+					<div class="error">
+						@loginForm.globalError.message
+					</div>
+				}
+
+				@if(flash.contains("success")) {
+					<div class="success">
+						@flash.get("success")
+					</div>
+				}
+				
+				@inputText(loginForm("username"))
+				@inputPassword(loginForm("password"))
+				<input type="submit" value="Login" />
+
+			}
+		</div>
+	</div>
+}

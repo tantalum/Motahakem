@@ -1,0 +1,5 @@
+@(serverFormData: Form[Server])
+
+@layout {
+	@serverForm(serverFormData, "/servers/" + serverFormData.get().id + "/edit")
+}

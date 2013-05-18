@@ -1,0 +1,15 @@
+@(serverForm: Form[Server], url: String)
+
+@import helper._
+
+<form method="POST" action="@url">
+	@inputText(serverForm("name"))
+	@inputText(serverForm("address"))
+	@inputText(serverForm("username"))
+	@inputPassword(serverForm("password"))
+	@for(plugin <- plugins.PluginManager.allPlugins()) {
+		<input type="checkbox" name="@plugin.getName()" />
+		<span>@plugin.getName()</span>
+	}
+	<input type="submit" value="Register" />
+</form>

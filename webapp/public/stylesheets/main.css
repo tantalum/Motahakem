@@ -1,0 +1,207 @@
+body {
+	margin: 0px;
+	font-family: Arial, Helvetica, serif;
+	font-size: 10pt;
+}
+
+
+#header {
+	height: 80;
+	background-image: url('/assets/images/main-header.png');
+	border-bottom: solid gray 1px;
+}
+
+#header-links {
+	float: right;
+	clear: right;
+}
+
+#header h1 {
+	color: #000000;
+	padding-top: 20px;
+	padding-left: 10px;
+	text-decoration: none;
+	margin: 0px;
+}
+
+#header a {
+	text-decoration: none;
+}
+
+#header-links a {
+	color: white;
+	text-decoration: none;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+/* -------------------- SITE CONTROLS ---------------------------*/
+
+.button {
+	border: solid black 1px;
+	background-image: url('/assets/images/button-background.png');
+	background-position: center;
+	border-radius: 5px 5px 5px 5px;
+	font-family: sans-serif;
+	text-align: center;
+	padding: 2px;
+	margin: 2px;
+	font-size: smaller;
+	font-weight: bold;
+	width: 80px;
+	height: 20px;
+	color: black;
+	cursor: pointer;
+	display: inline;
+}
+
+.button a {
+	text-decoration: none;
+	color: black;
+}
+
+.not-running {
+	background-color: red;
+	background-image: none;
+}
+
+.error {
+	color: red;
+	font-weight: bold;
+}
+
+/* ------------------------- SERVERS ----------------------------*/
+
+#server-list {
+	padding: 0px;
+	margin: 0px;
+}
+
+#server-list li {
+	list-style: none;
+}
+
+.server-line {
+	margin: 10px;
+	margin-bottom: 0px;
+}
+.server-line form {
+	display: inline;
+	margin: 0px;
+}
+
+.server-line input {
+	display: inline;
+}
+
+.server-line .label {
+	width: 100px;
+	display: inline-block;
+	font-weight: bold;
+}
+
+.server-line .server-line-header {
+	border: solid black 1px;
+	border-radius: 15px 15px 0px 0px;
+	background-image: url('/assets/images/server-line-header.png');
+	height: 25px;
+}
+
+.server-line .server-line-header a {
+	text-decoration: none;
+	text-align: center;
+}
+
+.server-line .server-line-header h3 {
+	padding-top: 0px;
+	margin: 0px;
+	color: #ffffff;
+}
+
+.server-line .server-line-data {
+	border: solid black 1px;
+	border-top: none;
+	border-radius: 0px 0px 15px 15px;
+}
+
+.server-line .line-item {
+	padding-left: 20px;
+}
+
+.server-line .actions {
+	padding-top: 5px;
+	padding-left: 20px;
+	padding-bottom: 5px;
+	border-top: dotted gray 1px;
+}
+
+#new-server-header {
+	width: auto;
+	height: auto;
+	display: block;
+}
+
+#new-server-form {
+	display:none;
+	background-color: #ffffff;
+	border: solid black 1px;
+	padding: 10px;
+}
+
+dl dd.info {
+	display: none;
+}
+
+
+form dl dt {
+	display: inline;
+}
+
+form dl dt label {
+	width: 50px;
+}
+
+form dl dd {
+	display: inline;
+	margin-left: 100px;
+}
+
+form dl dd input {
+	display: inline;
+}
+
+#pings {
+	width: 100%;
+}
+
+#pings tr {
+	border: solid black 1px;
+}
+
+/* ---------------------------- PLUGIN PANEL ----------------------------------*/
+
+.operations form {
+	display: inline;
+}
+
+.operations input {
+	display: inline;
+}
+
+.plugin-pane div.configuration {
+	border-top: solid gray 1px;
+	background-color: #E8E8E8;
+}
+
+/* --------------------------- LOGIN PAGE ------------------------------------*/
+#login-wrapper {
+	text-align: center;
+}
+
+#login-form-wrapper {
+	width: 400px;
+	border: solid black 1px;
+	border-radius: 10px 10px 10px 10px;
+	display: inline-block;
+	margin-top: 30px;
+}

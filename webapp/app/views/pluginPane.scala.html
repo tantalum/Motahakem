@@ -1,0 +1,31 @@
+@(plugin: plugins.Plugin, server: Server, config: String)
+
+@import helper._
+
+@layout {
+<div class="plugin-pane">
+	<h1>@plugin.getName() configuration for @server.name</h1>
+	<div class="operations">
+		@if(plugin.getStatus(server) == plugins.Plugin.SERVICE_RUNNING) {
+			<div id="service-status">Service is <span style="color:green">Running</span></div>
+			@form(routes.Plugins.restart(server.id, plugin.getName())) {
+				<input type="submit" class="button" value="Restart @plugin.getName()" />
+			}
+			@form(routes.Plugins.stop(server.id, plugin.getName())) {
+				<input type="submit" class="button" value="Stop @plugin.getName()" />
+			}
+		} else {
+			<div id="service-status">Service is <span style="color:red">Stopped</span></div>
+				@form(routes.Plugins.start(server.id, plugin.getName())) {
+					<input type="submit" class="button" value="Start @plugin.getName()" />
+				}
+		}
+	</div>
+	<div class="configuration">
+		<pre>
+@config
+		</pre>
+	</div>
+</"=meta http-equiv="Refresh"content="45;URL>
+</div>
+}

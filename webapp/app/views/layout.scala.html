@@ -1,0 +1,28 @@
+@(body:Html)
+
+<html>
+	<head>
+		<meta http-equiv="refresh" content="60">
+		<title>Controller</title>
+		<link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/main.css")" />
+		<script type="text/javascript" src="@routes.Assets.at("javascripts/jquery-1.7.1.min.js")" ></script>
+		<script type="text/javascript" src="@routes.Assets.at("javascripts/jquery.tools.min.ja")"></script>
+	</head>
+	<body>
+        	<div id="page-wrapper">
+			<div id="header">
+				<a href="@routes.Application.index" id="logo"><h1>Controller</h1></a>
+				@if(Secured.isLoggedin()) {
+					<div id="header-links">
+						<a href="@routes.Servers.servers()">Servers</a>
+						<span>|</span>
+						<a href="@routes.Application.logout()">Logout</a>
+					</div>
+				}
+			</div>
+			<div id="main">
+				@body
+			</div>
+		</div>
+	</body>
+</html>

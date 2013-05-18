@@ -1,0 +1,50 @@
+@(server: Server, uptime: helpers.CommandResult)
+
+@import helper._
+
+<div class="server-line">
+	<div class="server-line-header">
+		<a href="@routes.Servers.status(server.id)"><h3 class="name">@server.name</h3></a>
+	</div>
+
+	<div class="server-line-data">
+		<div class="line-item"><div class="label">Address:</div><span>@server.address</span></div>
+		<div class="line-item"><div class="label">Username:</div><span>@server.username</span></div>
+		<div class="line-item">
+			<div class="label">Status:</div>
+			@if(uptime.exitCode == 0) {
+				<span style="color:green">Online</span>
+			} else {
+				<span style="color:red">Offline</span>
+			}
+		</div>
+		@if(uptime.exitCode == 0) {
+			<div class="line-item">
+				<div class="label">Services:</div>
+				<span>
+					@for(plugin <- plugins.PluginManager.allPlugins()) {
+						@if(plugin.getStatus(server) == plugins.Plugin.SERVICE_RUNNING) {
+							<div class="button">
+						} else {
+							<div class="button not-running">
+						}
+							<a href="@routes.Plugins.pluginPane(server.id, plugin.getName())" >
+								@plugin.getName()
+							</a>
+						</div>
+					}
+
+					@form(routes.Servers.reboot(server.id)) {
+						<input type="submit" value="Reboot" class="button" />
+					}
+				</span>
+			</div>
+		}
+		<div class="actions">
+			<div class="button"><a href="@routes.Servers.edit(server.id)">Edit</a></div>
+			@form(routes.Servers.remove(server.id)) {
+				<input type="submit" value="Unregister" class="button"/>
+			}
+		</div>
+	</div>
+</div>
