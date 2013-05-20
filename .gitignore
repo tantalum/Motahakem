@@ -5,3 +5,8 @@ webapp/target
 webapp/tmp
 webapp/.history
 webapp/dist
+Vagrantfile
+manifests/
+play/
+.vagrant
+*.swp
